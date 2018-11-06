@@ -26,7 +26,7 @@
     </style>
   </head>
   <body>
-    <p></p>
+    <p>Working...</p>
     <script>
       const hook = location.pathname.substr(1);
       fetch('https://api.netlify.com/build_hooks/' + hook, {
@@ -36,7 +36,8 @@
           return response.ok;
         })
         .then(status => {
-          console.log(status);
+          const message = status ? 'Success! Changes to your site have been published live.' : 'Whoops! Something went wrong.';
+          document.querySelector('p').innerHTML = message;
         })
     </script>
   </body>
