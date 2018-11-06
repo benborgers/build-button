@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Deploy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <style>
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: black;
+        padding: 2rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <script>
+      const hook = location.pathname.substr(1);
+      fetch('https://api.netlify.com/build_hooks/' + hook, {
+        method: 'POST'
+      })
+        .then(response => {
+          return response.text();
+        })
+        .then(text => {
+          console.log(text);
+        })
+    </script>
+  </body>
+</html>
