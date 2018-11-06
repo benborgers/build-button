@@ -33,10 +33,10 @@
         method: 'POST'
       })
         .then(response => {
-          return response.text();
+          return response.ok;
         })
-        .then(text => {
-          console.log(text);
+        .then(status => {
+          console.log(status);
         })
     </script>
   </body>
