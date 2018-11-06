@@ -22,6 +22,7 @@
       p {
         font-size: 1.1rem;
         font-weight: 700;
+        line-height: 1.4;
       }
     </style>
   </head>
@@ -30,7 +31,7 @@
     <script>
       const hook = location.pathname.substr(1);
       if(hook == '') {
-        document.querySelector('p').innerHTML = 'This is a simple utility to create a link that triggers a deploy to a Netlify site. Just append /<deploy_hook_id> to the URL.'
+        document.querySelector('p').innerHTML = 'This is a simple utility to create a link that triggers a deploy to a Netlify site. Just append /{your_deploy_hook_id} to the URL.'
       } else {
         fetch('https://api.netlify.com/build_hooks/' + hook, {
           method: 'POST'
