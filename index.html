@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Deploy</title>
+    <title>Publish Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <style>
       * {
@@ -31,7 +31,7 @@
     <script>
       const hook = location.pathname.substr(1);
       if(hook === "") {
-        document.querySelector("p").innerHTML = "This is a simple utility to create a link that triggers a deploy to a Netlify site. Just append /{your_deploy_hook_id} to the URL."
+        document.querySelector("p").innerHTML = "This is a simple utility to create a link that triggers a new deploy of a Netlify site. Just append /{your_deploy_hook_id} to the URL."
       } else {
         fetch("https://api.netlify.com/build_hooks/" + hook, {
           method: "POST"
