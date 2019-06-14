@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <style>
       * {
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, Roboto, system-ui, sans-serif;
         color: white;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -30,18 +30,18 @@
     <p>Working...</p>
     <script>
       const hook = location.pathname.substr(1);
-      if(hook == '') {
-        document.querySelector('p').innerHTML = 'This is a simple utility to create a link that triggers a deploy to a Netlify site. Just append /{your_deploy_hook_id} to the URL.'
+      if(hook === "") {
+        document.querySelector("p").innerHTML = "This is a simple utility to create a link that triggers a deploy to a Netlify site. Just append /{your_deploy_hook_id} to the URL."
       } else {
-        fetch('https://api.netlify.com/build_hooks/' + hook, {
-          method: 'POST'
+        fetch("https://api.netlify.com/build_hooks/" + hook, {
+          method: "POST"
         })
           .then(response => {
             return response.ok;
           })
           .then(status => {
-            const message = status ? 'Success! Changes to your site have been published live.' : 'Whoops! Something went wrong.';
-            document.querySelector('p').innerHTML = message;
+            const message = status ? "Success! Changes to your site will be published shortly." : "Whoops! Something went wrong.";
+            document.querySelector("p").innerHTML = message;
           })
       }
     </script>
